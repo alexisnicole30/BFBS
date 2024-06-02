@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./images/bgFS1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.top-head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to right, #e876f5, #df4adf);
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    
+}
+
+.back-home {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.back-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #df4adf;
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.back-icon-circle i {
+    font-size: 20px;
+}
+
+.top-head img {
+    height: 50px;
+}
+
+.admin-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    margin: auto;
+    background-color: rgba(238, 143, 225, 0.778);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 200px;
+}
+
+.adminGreeting h1 {
+    text-align: center;
+    color: #000000;
+}
+
+.adminLogin-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.adminLogin-cardContainer {
+    margin-top: 20px;
+}
+
+.Admin-input-field {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Admin-input-field i {
+    margin-right: 10px;
+    color: #333;
+}
+
+.Admin-input-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+    color: #000000;
+}
+
+.Adminbtn {
+    width: 100%;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Adminbtn:hover {
+    background-color: #0056b3;
+}
+#errorMessage{
+    display: none; 
+    justify-content: flex-start;
+    align-items: center;
+    width: 260px; 
+    margin: -15px 1px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: red;
+}
+@media screen and (max-width: 600px) {
+    .admin-container {
+        width: 100%;
+        padding: 10px;
+    }
+    .top-head {
+        padding: 10px;
+    }
+    .back-icon-circle {
+        height: 30px;
+        width: 30px;
+    }
+    .back-icon-circle i {
+        font-size: 15px;
+    }
+    .top-head img {
+        height: 40px;
+    }
+    .adminGreeting h1 {
+        font-size: 1.5em;
+    }
+    .Admin-input-field {
+        padding: 5px;
+    }
+    .Admin-input-field i {
+        margin-right: 5px;
+    }
+    .Adminbtn {
+        padding: 5px;
+    }
+}
