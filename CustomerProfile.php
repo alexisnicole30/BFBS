@@ -179,7 +179,7 @@
         $firstName = $row_profile['cust_fname'];
         $lastName = $row_profile['cust_lname'];
         $email = $row_profile['cust_email'];
-        $phoneNumber = $row_profile['cust_phoneNumber'];
+        $phoneNumber = $row_profile['cust_phonenumber'];
         $gender = $row_profile['cust_gender'];
         $birthdate = $row_profile['cust_bdate'];
         $profilePic = $row_profile['cust_profpic'];
