@@ -176,13 +176,13 @@
     if ($result_profile->num_rows > 0) {
         // Fetch user profile information from the result set
         $row_profile = $result_profile->fetch_assoc();
-        $firstName = $row_profile['cust_Fname'];
-        $lastName = $row_profile['cust_Lname'];
-        $email = $row_profile['cust_Email'];
-        $phoneNumber = $row_profile['cust_PhoneNumber'];
-        $gender = $row_profile['cust_Gender'];
-        $birthdate = $row_profile['cust_Bdate'];
-        $profilePic = $row_profile['cust_ProfPic'];
+        $firstName = $row_profile['cust_fname'];
+        $lastName = $row_profile['cust_lname'];
+        $email = $row_profile['cust_email'];
+        $phoneNumber = $row_profile['cust_phoneNumber'];
+        $gender = $row_profile['cust_gender'];
+        $birthdate = $row_profile['cust_bdate'];
+        $profilePic = $row_profile['cust_profpic'];
 
         $stmt_profile->close();
 
