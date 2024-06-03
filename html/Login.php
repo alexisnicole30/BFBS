@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     timer: 1500
                 });
               setTimeout(function(){ 
-                  window.location.href = '../what_s_new.php';
+                  window.location.href = '../../what_s_new.php';
               }, 1500);
               </script>";
     } else {
