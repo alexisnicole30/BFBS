@@ -40,7 +40,7 @@ if ($result_profile->num_rows > 0) {
     $phoneNumber = $row_profile['cust_phonenumber'];
     $gender = $row_profile['cust_gender'];
     $birthdate = $row_profile['cust_bdate'];
-    $profilePic = $row_profile['cust_profPic'];
+    $profilePic = $row_profile['cust_profpic'];
 
     $stmt_profile->close();
 
