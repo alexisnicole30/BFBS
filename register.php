@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'Sorry, your file is too large!'
         ];
         $uploadOk = 0;
-        header("Location: ../html/Registration.php");
+        header("Location: ./html/Registration.php");
         exit();
     }
 
