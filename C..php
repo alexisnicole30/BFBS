@@ -214,7 +214,9 @@ $conn->close();
                         echo '<div class="product">';
                         // Image row
                         echo '<div class="product-image">';
-                        echo '<img src="' . $row["prod_image"] . '">';
+                        echo '<img src="../admin/pages/products/' . $row["prod_image"] . '">';
+
+
                         echo '</div>';
 
                         // Name row
@@ -281,7 +283,7 @@ $conn->close();
                         echo '<div class="product">';
                         // Image row
                         echo '<div class="product-image">';
-                        echo '<img src="' . $row["prod_image"] . '">';
+                        echo '<img src="../admin/pages/products/' . $row["prod_image"] . '">';
                         echo '</div>';
 
                         // Name row
@@ -348,7 +350,7 @@ $conn->close();
                         echo '<div class="product">';
                         // Image row
                         echo '<div class="product-image">';
-                        echo '<img src="' . $row["prod_image"] . '">';
+                        echo '<img src="../admin/pages/products/'. $row["prod_image"] . '">';
                         echo '</div>';
 
                         // Name row
