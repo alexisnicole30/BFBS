@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = mysqli_real_escape_string($conn, $password);
 
     // Query to check if username and password match
-    $sql = "SELECT * FROM Customers WHERE cust_username='$username' AND cust_password='$password'";
+    $sql = "SELECT * FROM customers WHERE cust_username='$username' AND cust_password='$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
