@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
         $stmt->close();
         $conn->close();
-        header("Location: ../html/Registration.php");
+        header("Location: ./html/Registration.php");
         exit();
     }
     $stmt->close();
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'File is not an image!'
         ];
         $uploadOk = 0;
-        header("Location: ../html/Registration.php");
+        header("Location: ./html/Registration.php");
         exit();
     }
 
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'Sorry, only JPG, JPEG, PNG files are allowed!'
         ];
         $uploadOk = 0;
-        header("Location: ../html/Registration.php");
+        header("Location: ./html/Registration.php");
         exit();
     }
 
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'type' => 'error',
             'message' => 'Sorry, your file was not uploaded!'
         ];
-        header("Location: ../html/Registration.php");
+        header("Location: ./html/Registration.php");
         exit();
     } else {
         // Ensure target directory exists
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ];
                 $stmt->close();
                 $conn->close();
-                header("Location: ../html/Registration.php");
+                header("Location: ./html/Registration.php");
                 exit();
             } else {
                 $_SESSION['alert'] = [
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ];
                 $stmt->close();
                 $conn->close();
-                header("Location: ../html/Registration.php");
+                header("Location: ./html/Registration.php");
                 exit();
             }
         } else {
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'type' => 'error',
                 'message' => 'Sorry, there was an error uploading your file.'
             ];
-            header("Location: ../html/Registration.php");
+            header("Location: ./html/Registration.php");
             exit();
         }
     }
