@@ -5,91 +5,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = "dF0tj?A=7]|";
     $dbname = "u753706103_blissful_db";
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-  // Check connection
-  if ($conn->connect_error) {
-    echo '<script>alert("Connection failed: ' . $conn->connect_error . '"); window.location.href = "flowers.php";</script>';
-    die();
-  }
-
-  $flower_name = $conn->real_escape_string($_POST['flower_name']);
-  $flower_price = $conn->real_escape_string($_POST['flower_price']);
-
-  $target_dir = "Flower/";
-  if (!is_dir($target_dir)) {
-    mkdir($target_dir, 0777, true);
-  }
-
-  if (isset($_FILES["flower_img"]) && $_FILES["flower_img"]["error"] == UPLOAD_ERR_OK) {
-    $target_file = $target_dir . basename($_FILES["flower_img"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES["flower_img"]["tmp_name"]);
-    if ($check !== false) {
-      $uploadOk = 1;
-    } else {
-      echo '<script>alert("File is not an image."); window.location.href = "flowers.php";</script>';
-      die();
+    // Check connection
+    if ($conn->connect_error) {
+        echo '<script>alert("Connection failed: ' . $conn->connect_error . '"); window.location.href = "flowers.php";</script>';
+        die();
     }
 
-    if (file_exists($target_file)) {
-      echo '<script>alert("Sorry, file already exists."); window.location.href = "flowers.php";</script>';
-      die();
+    $flower_name = $conn->real_escape_string($_POST['flower_name']);
+    $flower_price = $conn->real_escape_string($_POST['flower_price']);
+
+    $target_dir = "Flower/";
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     }
 
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM flowers_tbl WHERE flower_name = ?");
-    $stmt->bind_param("s", $flower_name);
-    $stmt->execute();
-    $stmt->bind_result($count);
-    $stmt->fetch();
-    $stmt->close();
+    if (isset($_FILES["flower_img"]) && $_FILES["flower_img"]["error"] == UPLOAD_ERR_OK) {
+        $target_file = $target_dir . basename($_FILES["flower_img"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    if ($count > 0) {
-      echo '<script>alert("Sorry, a product with this name already exists."); window.location.href = "flowers.php";</script>';
-      die();
-    }
-
-    if ($_FILES["flower_img"]["size"] > 900000) {
-      echo '<script>alert("Sorry, your file is too large."); window.location.href = "flowers.php";</script>';
-      die();
-    }
-
-    $allowed_file_types = ["jpg", "jpeg", "png", "gif"];
-    if (!in_array($imageFileType, $allowed_file_types)) {
-      echo '<script>alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed."); window.location.href = "flowers.php";</script>';
-      die();
-    }
-
-    if ($uploadOk == 0) {
-      echo '<script>alert("Sorry, your file was not uploaded."); window.location.href = "flowers.php";</script>';
-      die();
-    } else {
-      if (move_uploaded_file($_FILES["flower_img"]["tmp_name"], $target_file)) {
-        $stmt = $conn->prepare("INSERT INTO flowers_tbl (flower_name, flower_price, flower_img) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $flower_name, $flower_price, $target_file);
-
-        if ($stmt->execute()) {
-          echo '<script>alert("New record created successfully."); window.location.href = "flowers.php";</script>';
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["flower_img"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
         } else {
-          echo '<script>alert("Error: ' . $stmt->error . '"); window.location.href = "flowers.php";</script>';
+            echo '<script>alert("File is not an image."); window.location.href = "flowers.php";</script>';
+            die();
         }
-        $stmt->close();
-      } else {
-        echo '<script>alert("Sorry, there was an error uploading your file."); window.location.href = "flowers.php";</script>';
-      }
-    }
-  } else {
-    echo '<script>alert("No file uploaded or there was an error uploading the file. Error code: ' . $_FILES["flower_img"]["error"] . '"); window.location.href = "flowers.php";</script>';
-  }
 
-  $conn->close();
+        if (file_exists($target_file)) {
+            echo '<script>alert("Sorry, file already exists."); window.location.href = "flowers.php";</script>';
+            die();
+        }
+
+        $stmt = $conn->prepare("SELECT COUNT(*) FROM flowers_tbl WHERE flower_name = ?");
+        $stmt->bind_param("s", $flower_name);
+        $stmt->execute();
+        $stmt->bind_result($count);
+        $stmt->fetch();
+        $stmt->close();
+
+        if ($count > 0) {
+            echo '<script>alert("Sorry, a product with this name already exists."); window.location.href = "flowers.php";</script>';
+            die();
+        }
+
+        if ($_FILES["flower_img"]["size"] > 900000) {
+            echo '<script>alert("Sorry, your file is too large."); window.location.href = "flowers.php";</script>';
+            die();
+        }
+
+        $allowed_file_types = ["jpg", "jpeg", "png", "gif"];
+        if (!in_array($imageFileType, $allowed_file_types)) {
+            echo '<script>alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed."); window.location.href = "flowers.php";</script>';
+            die();
+        }
+
+        if ($uploadOk == 0) {
+            echo '<script>alert("Sorry, your file was not uploaded."); window.location.href = "flowers.php";</script>';
+            die();
+        } else {
+            if (move_uploaded_file($_FILES["flower_img"]["tmp_name"], $target_file)) {
+                $stmt = $conn->prepare("INSERT INTO flowers_tbl (flower_name, flower_price, flower_img) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $flower_name, $flower_price, $target_file);
+
+                if ($stmt->execute()) {
+                    echo '<script>alert("New record created successfully."); window.location.href = "flowers.php";</script>';
+                } else {
+                    echo '<script>alert("Error: ' . $stmt->error . '"); window.location.href = "flowers.php";</script>';
+                }
+                $stmt->close();
+            } else {
+                echo '<script>alert("Sorry, there was an error uploading your file."); window.location.href = "flowers.php";</script>';
+            }
+        }
+    } else {
+        echo '<script>alert("No file uploaded or there was an error uploading the file. Error code: ' . $_FILES["flower_img"]["error"] . '"); window.location.href = "flowers.php";</script>';
+    }
+
+    $conn->close();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
