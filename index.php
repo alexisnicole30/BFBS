@@ -64,10 +64,10 @@
     <div class="product-container">
     <?php
     // Database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "blissful_db";
+    $servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -78,7 +78,7 @@
     }
 
     // SQL query to fetch products
-    $sql = "SELECT p.prod_id, p.prod_image, p.prod_name, p.prod_origPrice, p.prod_discountPrice, p.rating, SUM(o.quantity) AS total_quantity_sold
+    $sql = "SELECT p.prod_id, p.prod_image, p.prod_name, p.prod_origprice, p.prod_discountprice, p.rating, SUM(o.quantity) AS total_quantity_sold
             FROM product p
             JOIN orders o ON p.prod_id = o.prod_id
             GROUP BY p.prod_id
@@ -92,12 +92,12 @@
         while($row = $result->fetch_assoc()) {
             echo '<div class="product-card">';
             echo '<div class="product-image">';
-            echo '<img src="' . $row['prod_image'] . '" class="product-thumb" alt="Product Image">';
+            echo '<img src="../admin/products/Product/' . $row['prod_image'] . '" class="product-thumb" alt="Product Image">';
             echo '<button class="card-btn">Add to Wishlist</button>';
             echo '</div>';
             echo '<div class="product-info">';
             echo '<h2 class="product-name">' . $row['prod_name'] . '</h2>';
-            echo '<span class="price">₱' . $row['prod_origPrice'] . '</span><span class="actual-price">₱' . $row['prod_discountPrice'] . '</span>';
+            echo '<span class="price">₱' . $row['prod_origprice'] . '</span><span class="actual-price">₱' . $row['prod_discountprice'] . '</span>';
 
             // Check if the rating is greater than 0
             if ($row['total_quantity_sold'] > 0) {

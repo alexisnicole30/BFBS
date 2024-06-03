@@ -1,9 +1,9 @@
 <?php
 // Establish database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "blissFul_DB";
+$servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -7,10 +7,10 @@
     <h2>Insert Flower Data</h2>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "blissful_db"; // Replace with your actual database name
+        $servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db"; // Replace with your actual database name
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);

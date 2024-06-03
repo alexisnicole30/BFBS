@@ -23,10 +23,10 @@
         }
 
     // Establish database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "blissFul_DB";
+    $servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -166,8 +166,8 @@
             <a href="../what_s_new.php" class="navigation_links">What's New</a>
             <a href="../sales.php" class="navigation_links">Sales</a>
             <a href="../C..php" class="navigation_links">Occasion</a>
-        </div>
-    </header>
+            </div>   
+         </header>
 
     <section class="favorite-container">
        <div class="fav-header">
@@ -183,10 +183,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 
 // Establish database connection
-$servername = "localhost";
-$user_name = "root";
-$password = "";
-$dbname = "blissFul_DB";
+$servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
 $conn = new mysqli($servername, $user_name, $password, $dbname);
 if ($conn->connect_error) {
@@ -318,10 +318,10 @@ $conn->close();
             <option value="">None</option>
             <?php
             // Establish database connection
-            $servername = "localhost";
-            $user_name = "root";
-            $password = "";
-            $dbname = "blissFul_DB";
+            $servername = "127.0.0.1:3306";
+            $username = "u753706103_blissfulbqt";
+            $password = "dF0tj?A=7]|";
+            $dbname = "u753706103_blissful_db";
 
             $conn = new mysqli($servername, $user_name, $password, $dbname);
             if ($conn->connect_error) {

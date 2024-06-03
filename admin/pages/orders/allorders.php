@@ -1,9 +1,9 @@
 <?php
 // Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "blissful_db";
+$servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,7 +18,7 @@ $sql = "
     SELECT 
         o.order_id, 
         o.prod_id,
-        c.cust_Num,
+        c.cust_num,
         o.variations,
         o.date_purchase AS order_date, 
         o.totalPrice AS total, 
@@ -27,7 +27,7 @@ $sql = "
     FROM 
         orders o
     JOIN 
-        customers c ON o.cust_Num = c.cust_Num
+        customers c ON o.cust_num = c.cust_num
     ORDER BY 
         o.date_purchase DESC";
 
@@ -303,7 +303,7 @@ $conn->close();
                             <tr class="clickable-row" data-order-id="<?php echo $order['order_id']; ?>">
                               <td style="text-align: left;"><?php echo $order['order_id']; ?></td>
                               <td style="text-align: left;"><?php echo $order['prod_id']; ?></td>
-                              <td style="text-align: left;"><?php echo $order['cust_Num']; ?></td>
+                              <td style="text-align: left;"><?php echo $order['cust_num']; ?></td>
                               <td style="text-align: left;"><?php echo $order['variations']; ?></td>
                               <td style="text-align: left;"><?php echo $order['order_date']; ?></td>
                               <td style="text-align: left;"><?php echo $order['total']; ?></td>

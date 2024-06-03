@@ -8,10 +8,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 
 // Database credentials
-$servername = "localhost";
-$username = "root"; // replace with your database username
-$password = ""; // replace with your database password
-$dbname = "blissful_db"; // replace with your database name
+$servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
 // Establish database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -456,10 +456,10 @@ $products_json = json_encode($products);
                 <option value="">None</option>
                 <?php
                 // Establish database connection
-                $servername = "localhost";
-                $user_name = "root";
-                $password = "";
-                $dbname = "blissFul_DB";
+                $servername = "127.0.0.1:3306";
+    $username = "u753706103_blissfulbqt";
+    $password = "dF0tj?A=7]|";
+    $dbname = "u753706103_blissful_db";
 
                 $conn = new mysqli($servername, $user_name, $password, $dbname);
                 if ($conn->connect_error) {
