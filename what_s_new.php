@@ -26,7 +26,7 @@
     $username = $_SESSION['username'];
 
      // Prepare and execute SQL query to fetch user profile information based on username
-     $sql_profile = "SELECT cust_fname, cust_lname, cust_email, cust_phonenumber, cust_gender, cust_bdate, cust_profpic FROM Customers WHERE cust_username = ?";
+     $sql_profile = "SELECT cust_fname, cust_lname, cust_email, cust_phonenumber, cust_gender, cust_bdate, cust_profpic FROM customers WHERE cust_username = ?";
      $stmt_profile = $conn->prepare($sql_profile);
      $stmt_profile->bind_param("s", $username);
      $stmt_profile->execute();
