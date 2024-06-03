@@ -26,7 +26,7 @@
     $username = $_SESSION['username'];
 
      // Prepare and execute SQL query to fetch user profile information based on username
-     $sql_profile = "SELECT cust_Fname, cust_Lname, cust_Email, cust_PhoneNumber, cust_Gender, cust_Bdate, cust_ProfPic FROM Customers WHERE cust_username = ?";
+     $sql_profile = "SELECT cust_fname, cust_lname, cust_email, cust_phonenumber, cust_gender, cust_bdate, cust_profpic FROM Customers WHERE cust_username = ?";
      $stmt_profile = $conn->prepare($sql_profile);
      $stmt_profile->bind_param("s", $username);
      $stmt_profile->execute();
@@ -36,18 +36,18 @@
     if ($result_profile->num_rows > 0) {
         // Fetch user profile information from the result set
         $row_profile = $result_profile->fetch_assoc();
-        $firstName = $row_profile['cust_Fname'];
-        $lastName = $row_profile['cust_Lname'];
-        $email = $row_profile['cust_Email'];
-        $phoneNumber = $row_profile['cust_PhoneNumber'];
-        $gender = $row_profile['cust_Gender'];
-        $birthdate = $row_profile['cust_Bdate'];
-        $profilePic = $row_profile['cust_ProfPic'];
+        $firstName = $row_profile['cust_fname'];
+        $lastName = $row_profile['cust_lname'];
+        $email = $row_profile['cust_email'];
+        $phoneNumber = $row_profile['cust_phonenumber'];
+        $gender = $row_profile['cust_gender'];
+        $birthdate = $row_profile['cust_bdate'];
+        $profilePic = $row_profile['cust_profPic'];
 
         $stmt_profile->close();
 
         // Prepare and execute SQL query to fetch user address information based on username
-        $sql_address = "SELECT cust_fullName, cust_phoneNumber, cust_Street, cust_Purok, cust_Barangay, cust_City, cust_Province FROM cust_address_tbl WHERE cust_Num = (SELECT cust_Num FROM Customers WHERE cust_username = ?)";
+        $sql_address = "SELECT cust_fullname, cust_phonenumber, cust_street, cust_purok, cust_barangay, cust_city, cust_province FROM cust_address_tbl WHERE cust_num = (SELECT cust_num FROM customers WHERE cust_username = ?)";
         $stmt_address = $conn->prepare($sql_address);
         $stmt_address->bind_param("s", $username);
         $stmt_address->execute();
@@ -58,12 +58,12 @@
             // Fetch user address information from the result set
             $row_address = $result_address->fetch_assoc();
             $fullName = $row_address['cust_fullName'];
-            $addressPhoneNumber = $row_address['cust_phoneNumber'];
-            $streetName = $row_address['cust_Street'];
-            $purok = $row_address['cust_Purok'];
-            $barangay = $row_address['cust_Barangay'];
-            $city = $row_address['cust_City'];
-            $province = $row_address['cust_Province'];
+            $addressPhoneNumber = $row_address['cust_phonenumber'];
+            $streetName = $row_address['cust_street'];
+            $purok = $row_address['cust_purok'];
+            $barangay = $row_address['cust_barangay'];
+            $city = $row_address['cust_city'];
+            $province = $row_address['cust_povince'];
         }
 
         $stmt_address->close();
@@ -385,8 +385,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";
@@ -436,8 +436,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";
@@ -489,8 +489,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";
@@ -552,8 +552,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";
@@ -608,8 +608,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";
@@ -663,8 +663,8 @@
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
-            echo "<span class='F_item_text'>$ " . $row['prod_origPrice'] . "</span>";
-            echo "<span class='price'>$ " . $row['prod_discountPrice'] . "</span>"; // Display the product discount
+            echo "<span class='F_item_text'>$ " . $row['prod_origprice'] . "</span>";
+            echo "<span class='price'>$ " . $row['prod_discountprice'] . "</span>"; // Display the product discount
             echo "</div>";
             echo "<form class='star '>";
             echo "<input class='radio-input' type='radio' id='star12' name='star-input' value='5' />";

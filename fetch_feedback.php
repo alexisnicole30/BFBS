@@ -45,7 +45,7 @@ if ($result_cust_num->num_rows > 0) {
         $sql_fetch_feedback = "
             SELECT rev_star, rev_description, rev_date
             FROM reviews
-            WHERE prod_id = ? AND cust_Num = ?";
+            WHERE prod_id = ? AND cust_num = ?";
         $stmt_fetch_feedback = $conn->prepare($sql_fetch_feedback);
         $stmt_fetch_feedback->bind_param("ii", $prodId, $custNum);
         $stmt_fetch_feedback->execute();
