@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthdate = htmlspecialchars($_POST['birthdate']);
 
     // Check if username is already taken
-    $checkUsernameSql = "SELECT cust_username FROM Customers WHERE cust_username = ?";
+    $checkUsernameSql = "SELECT cust_username FROM customers WHERE cust_username = ?";
     $stmt = $conn->prepare($checkUsernameSql);
     $stmt->bind_param("s", $userName);
     $stmt->execute();
