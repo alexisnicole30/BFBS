@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $category_name = $conn->real_escape_string($_POST['category_name']);
   $prod_name = $conn->real_escape_string($_POST['prod_name']);
-  $prod_origPrice = $conn->real_escape_string($_POST['prod_origPrice']);
+  $prod_origPrice = $conn->real_escape_string($_POST['prod_origprice']);
   $prod_discountPrice = $conn->real_escape_string($_POST['prod_discountPrice']);
   $prod_qoh = $conn->real_escape_string($_POST['prod_qoh']);
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       die();
     } else {
       if (move_uploaded_file($_FILES["prod_image"]["tmp_name"], $target_file)) {
-        $stmt = $conn->prepare("INSERT INTO product (category_name, prod_name, prod_origPrice, prod_discountPrice, prod_qoh, prod_image ) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO product (category_name, prod_name, prod_origprice, prod_discountprice, prod_qoh, prod_image ) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $category_name, $prod_name, $prod_origPrice, $prod_discountPrice, $prod_qoh, $target_file);
 
         if ($stmt->execute()) {
