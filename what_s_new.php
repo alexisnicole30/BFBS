@@ -366,10 +366,7 @@
 <section class="section1">
     <?php
     // Database connection
-    $servername = "127.0.0.1:3306";
-    $username = "u753706103_blissfulbqt";
-    $password = "dF0tj?A=7]|";
-    $dbname = "u753706103_blissful_db";
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -420,7 +417,8 @@
 
     <?php
     // Database connection
-    $conn = new mysqli("localhost", "root", "", "blissful_db");
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
+
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -473,7 +471,8 @@
 <section class="section5">
     <?php
     // Database connection
-    $conn = new mysqli("localhost", "root", "", "blissful_db");
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
+
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -536,7 +535,7 @@
 <section class="section8">
     <?php
     // Database connection
-    $conn = new mysqli("localhost", "root", "", "blissful_db");
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -592,7 +591,8 @@
 <section class="section9">
     <?php
     // Database connection
-    $conn = new mysqli("localhost", "root", "", "blissful_db");
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
+
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -647,7 +647,7 @@
 <section class="section10">
     <?php
     // Database connection
-    $conn = new mysqli("localhost", "root", "", "blissful_db");
+    $conn = new mysqli("127.0.0.1:3306", "u753706103_blissfulbqt", "dF0tj?A=7]|", "u753706103_blissful_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
