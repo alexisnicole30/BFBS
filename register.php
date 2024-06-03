@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Attempt to upload file
         if (move_uploaded_file($profilePic["tmp_name"], $targetFile)) {
             // Insert data into database using prepared statement
-            $sql = "INSERT INTO Customers (cust_Fname, cust_Lname, cust_username, cust_email, cust_password, cust_PhoneNumber, cust_Gender, cust_Bdate, cust_profPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO customers (cust_Fname, cust_Lname, cust_username, cust_email, cust_password, cust_phonenumber, cust_gender, cust_Bdate, cust_profPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssssssss", $firstName, $lastName, $userName, $email, $password, $phoneNumber, $gender, $birthdate, $targetFile);
 
