@@ -461,7 +461,7 @@ $products_json = json_encode($products);
     $password = "dF0tj?A=7]|";
     $dbname = "u753706103_blissful_db";
 
-                $conn = new mysqli($servername, $user_name, $password, $dbname);
+                $conn = new mysqli($servername, $username, $password, $dbname);
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
