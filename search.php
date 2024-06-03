@@ -534,7 +534,8 @@ $products_json = json_encode($products);
 
                 productContainer.innerHTML = `
                     <div class="product-image">
-                       echo "<img src='../admin/pages/products/".$product['prod_image']."' alt='".$product['prod_name']."'>";
+                        <img src="${product.prod_image}" alt="${product.prod_name}">
+
 
                     </div>
                     <div class="product-details">
