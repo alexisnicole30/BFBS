@@ -381,7 +381,7 @@
         // Output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<div class='F_container_item3'>";
-            echo "<img class='F_item_image' src='./".$row['prod_image'] . "' alt='Flower'>";
+            echo "<img class='F_item_image' src='../admin/pages/products/".$row['prod_image'] . "' alt='Flower'>";
             echo "<div class='F_box_info'>";
             echo "<h3 class='F_item_title2'>" . $row['prod_name'] . "</h3>";
             echo "<div class='price-container'>";
