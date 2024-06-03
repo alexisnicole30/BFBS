@@ -428,24 +428,15 @@ if (!empty($products)) {
                 <p class="card-title">Feedbacks</p>
                 <div class="feedback-buttons">
                   <button type="button" class="btn btn-secondary btn-rounded btn-fw feedback-button">Beautiful bouquets and fresh flowers!
-                    <button class="btn btn-icon btn-sm btn-outline-primary ml-2">
-                      <i class="mdi mdi-dots-horizontal"></i>
-                    </button>
                   </button>
                   <button type="button" class="btn btn-secondary btn-rounded btn-fw feedback-button">Fantastic service! Will definitely order again.
-                    <button class="btn btn-icon btn-sm btn-outline-primary ml-2">
-                      <i class="mdi mdi-dots-horizontal"></i>
-                    </button>
+
                   </button>
                   <button type="button" class="btn btn-secondary btn-rounded btn-fw feedback-button">Highly recommend! The flowers were stunning.
-                    <button class="btn btn-icon btn-sm btn-outline-primary ml-2">
-                      <i class="mdi mdi-dots-horizontal"></i>
-                    </button>
+
                   </button>
                   <button type="button" class="btn btn-secondary btn-rounded btn-fw feedback-button">Excellent quality and prompt delivery.
-                    <button class="btn btn-icon btn-sm btn-outline-primary ml-2">
-                      <i class="mdi mdi-dots-horizontal"></i>
-                    </button>
+
                   </button>
                 </div>
               </div>
