@@ -3,9 +3,9 @@ session_start();
 
 // Database configuration
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "blissful_db";
+$username = "u753706103_blissfulbqt";
+$password = "dF0tj?A=7]|";
+$dbname = "u753706103_blissful_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
