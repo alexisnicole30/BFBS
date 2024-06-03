@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 $username = $_SESSION['username'];
 
 // Prepare and execute SQL query to fetch user profile information based on username
-$sql_profile = "SELECT cust_Fname, cust_Lname, cust_Email, cust_PhoneNumber, cust_Gender, cust_Bdate, cust_ProfPic FROM Customers WHERE cust_username = ?";
+$sql_profile = "SELECT cust_fname, cust_lname, cust_email, cust_phonenumber, cust_gender, cust_bdate, cust_profpic FROM customers WHERE cust_username = ?";
 $stmt_profile = $conn->prepare($sql_profile);
 $stmt_profile->bind_param("s", $username);
 $stmt_profile->execute();
@@ -35,18 +35,18 @@ $result_profile = $stmt_profile->get_result();
 if ($result_profile->num_rows > 0) {
     // Fetch user profile information from the result set
     $row_profile = $result_profile->fetch_assoc();
-    $firstName = $row_profile['cust_Fname'];
-    $lastName = $row_profile['cust_Lname'];
-    $email = $row_profile['cust_Email'];
-    $phoneNumber = $row_profile['cust_PhoneNumber'];
-    $gender = $row_profile['cust_Gender'];
-    $birthdate = $row_profile['cust_Bdate'];
-    $profilePic = $row_profile['cust_ProfPic'];
+    $firstName = $row_profile['cust_fname'];
+    $lastName = $row_profile['cust_lname'];
+    $email = $row_profile['cust_email'];
+    $phoneNumber = $row_profile['cust_phonenumber'];
+    $gender = $row_profile['cust_gender'];
+    $birthdate = $row_profile['cust_bdate'];
+    $profilePic = $row_profile['cust_profPic'];
 
     $stmt_profile->close();
 
     // Prepare and execute SQL query to fetch user address information based on username
-    $sql_address = "SELECT cust_fullName, cust_phoneNumber, cust_Street, cust_Purok, cust_Barangay, cust_City, cust_Province FROM cust_address_tbl WHERE cust_Num = (SELECT cust_Num FROM Customers WHERE cust_username = ?)";
+    $sql_address = "SELECT cust_fullName, cust_phonenumber, cust_street, cust_purok, cust_barangay, cust_city, cust_province FROM cust_address_tbl WHERE cust_num = (SELECT cust_num FROM customers WHERE cust_username = ?)";
     $stmt_address = $conn->prepare($sql_address);
     $stmt_address->bind_param("s", $username);
     $stmt_address->execute();
@@ -56,13 +56,13 @@ if ($result_profile->num_rows > 0) {
     if ($result_address->num_rows > 0) {
         // Fetch user address information from the result set
         $row_address = $result_address->fetch_assoc();
-        $fullName = $row_address['cust_fullName'];
-        $addressPhoneNumber = $row_address['cust_phoneNumber'];
-        $streetName = $row_address['cust_Street'];
-        $purok = $row_address['cust_Purok'];
-        $barangay = $row_address['cust_Barangay'];
-        $city = $row_address['cust_City'];
-        $province = $row_address['cust_Province'];
+        $fullName = $row_address['cust_fullname'];
+        $addressPhoneNumber = $row_address['cust_phonenumber'];
+        $streetName = $row_address['cust_street'];
+        $purok = $row_address['cust_purok'];
+        $barangay = $row_address['cust_barangay'];
+        $city = $row_address['cust_city'];
+        $province = $row_address['cust_province'];
     }
 
     $stmt_address->close();
@@ -75,7 +75,7 @@ if ($result_profile->num_rows > 0) {
 }
 
 // Fetch products from the database
-$sql = "SELECT prod_id, prod_name, prod_image, prod_origPrice, prod_discountPrice, prod_qoh FROM product WHERE prod_qoh > 0 AND prod_discountPrice > 0";
+$sql = "SELECT prod_id, prod_name, prod_image, prod_origprice, prod_discountprice, prod_qoh FROM product WHERE prod_qoh > 0 AND prod_discountprice > 0";
 $result = $conn->query($sql);
 
 $products = array();
@@ -601,8 +601,8 @@ $products_json = json_encode($products);
                     </div>
                     <div class="product-details">
                         <h2>${product.prod_name}</h2>
-                        <p class="price">$${product.prod_origPrice}</p>
-                        <p class="discounted-price">$${product.prod_discountPrice}</p>
+                        <p class="price">$${product.prod_origprice}</p>
+                        <p class="discounted-price">$${product.prod_discountprice}</p>
                         
                         <div class="button-container">
                             <button class="fav-AddCart-btn" data-prod-id="${product.prod_id}">Add to Cart</button>

@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newPassBtn'])) {
         $username = $_SESSION['username'];
 
         // Prepare and execute SQL query to update password
-        $sql = "UPDATE Customers SET cust_password=? WHERE cust_username=?";
+        $sql = "UPDATE customers SET cust_password=? WHERE cust_username=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $newPassword, $username);
 

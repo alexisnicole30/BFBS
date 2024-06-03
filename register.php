@@ -18,12 +18,12 @@ if ($conn->connect_error) {
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data and sanitize
-    $firstName = htmlspecialchars($_POST['firstName']);
-    $lastName = htmlspecialchars($_POST['lastName']);
+    $firstName = htmlspecialchars($_POST['firstname']);
+    $lastName = htmlspecialchars($_POST['lastname']);
     $userName = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']); // Plain-text password
-    $phoneNumber = htmlspecialchars((string)$_POST['phoneNumber']);
+    $phoneNumber = htmlspecialchars((string)$_POST['phonenumber']);
     $gender = ucfirst(htmlspecialchars($_POST['gender'])); // Capitalize first letter
     $birthdate = htmlspecialchars($_POST['birthdate']);
 
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Attempt to upload file
         if (move_uploaded_file($profilePic["tmp_name"], $targetFile)) {
             // Insert data into database using prepared statement
-            $sql = "INSERT INTO customers (cust_Fname, cust_Lname, cust_username, cust_email, cust_password, cust_phonenumber, cust_gender, cust_Bdate, cust_profPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO customers (cust_fname, cust_lname, cust_username, cust_email, cust_password, cust_phonenumber, cust_gender, cust_bdate, cust_profpic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssssssss", $firstName, $lastName, $userName, $email, $password, $phoneNumber, $gender, $birthdate, $targetFile);
 

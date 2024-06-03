@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 
 // Retrieve customer number from session username
 $username = $_SESSION['username'];
-$sql_cust_num = "SELECT cust_Num FROM customers WHERE cust_username = ?";
+$sql_cust_num = "SELECT cust_num FROM customers WHERE cust_username = ?";
 $stmt_cust_num = $conn->prepare($sql_cust_num);
 
 if (!$stmt_cust_num) {
@@ -39,7 +39,7 @@ $result_cust_num = $stmt_cust_num->get_result();
 
 if ($result_cust_num->num_rows > 0) {
     $row_cust_num = $result_cust_num->fetch_assoc();
-    $cust_Num = $row_cust_num['cust_Num'];
+    $cust_Num = $row_cust_num['cust_num'];
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Customer not found']);
     exit;
@@ -51,7 +51,7 @@ $rev_star = $_POST['rev_star'];
 $rev_description = $_POST['rev_description'];
 
 // Check if a review already exists
-$sql_check_review = "SELECT * FROM reviews WHERE prod_id = ? AND cust_Num = ?";
+$sql_check_review = "SELECT * FROM reviews WHERE prod_id = ? AND cust_num = ?";
 $stmt_check_review = $conn->prepare($sql_check_review);
 $stmt_check_review->bind_param("ii", $prod_id, $cust_Num);
 $stmt_check_review->execute();
@@ -63,7 +63,7 @@ if ($result_check_review->num_rows > 0) {
 }
 
 // Insert review into database
-$sql_insert_review = "INSERT INTO reviews (prod_id, cust_Num, rev_star, rev_description) VALUES (?, ?, ?, ?)";
+$sql_insert_review = "INSERT INTO reviews (prod_id, cust_num, rev_star, rev_description) VALUES (?, ?, ?, ?)";
 $stmt_insert_review = $conn->prepare($sql_insert_review);
 
 if (!$stmt_insert_review) {

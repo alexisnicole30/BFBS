@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and bind parameters
-    $stmt = $conn->prepare("INSERT INTO Product (category_name, prod_name, prod_origPrice, prod_discountPrice, prod_qoh, prod_image) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO product (category_name, prod_name, prod_origPrice, prod_discountprice, prod_qoh, prod_image) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssiiis", $category_name, $prod_name, $prod_origPrice, $prod_discountPrice, $prod_qoh, $prod_image);
 
     // Set parameters
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Fetch category names from the Category table
-            $sql = "SELECT category_name FROM Category";
+            $sql = "SELECT category_name FROM category";
             $result = $conn->query($sql);
 
             // Check if categories were fetched successfully
