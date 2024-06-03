@@ -51,7 +51,7 @@
         $birthdate = $_POST['date-of-birth'];
 
         // Prepare and execute SQL query to update user profile information
-        $sql = "UPDATE Customers SET cust_Fname=?, cust_Lname=?, cust_Email=?, cust_PhoneNumber=?, cust_Gender=?, cust_Bdate=? WHERE cust_username=?";
+        $sql = "UPDATE customers SET cust_fname=?, cust_lname=?, cust_email=?, cust_phonenumber=?, cust_gender=?, cust_bdate=? WHERE cust_username=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssssss", $firstName, $lastName, $email, $phoneNumber, $gender, $birthdate, $username);
 
